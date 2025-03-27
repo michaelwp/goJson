@@ -7,7 +7,7 @@ import (
 
 type GoJsonStruct interface {
 	ToJSON(v interface{}) string
-	FromJSON(jsonStr string, v interface{}) error
+	ToStruct(jsonStr string, v interface{}) error
 	ToJSONIndent(v interface{}) string
 }
 
@@ -36,7 +36,7 @@ func (j ImplGoJsonStruct) ToJSONIndent(v interface{}) string {
 }
 
 // FromJSON converts a JSON string back to a struct.
-func (j ImplGoJsonStruct) FromJSON(jsonStr string, v interface{}) error {
+func (j ImplGoJsonStruct) ToStruct(jsonStr string, v interface{}) error {
 	if err := json.Unmarshal([]byte(jsonStr), v); err != nil {
 		return fmt.Errorf("failed to parse JSON: %w", err)
 	}

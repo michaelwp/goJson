@@ -23,4 +23,13 @@ func main() {
 	// Convert struct to pretty JSON
 	jsonPretty := jsonConverter.ToJSONIndent(user)
 	fmt.Println(jsonPretty)
+
+	// Convert json back to struct
+	var userStruct User
+	err := jsonConverter.ToStruct(jsonStr, &userStruct)
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println(userStruct) // Output: {Alice 30 alice@example.com}
+	}
 }

@@ -6,14 +6,14 @@ GoJsonStruct is a lightweight library designed to easily convert Go structs to J
 
 - **Convert struct to JSON** (`ToJSON`)
 - **Convert struct to pretty JSON** (`ToJSONIndent`)
-- **Convert JSON to struct** (`FromJSON`)
+- **Convert JSON to struct** (`ToStruct`)
 
 ## 📥 Installation
 
 To install the package, run:
 
 ```sh
-go get github.com/michaelwp/goJsonStruct
+go get github.com/yourusername/goJsonStruct
 ```
 
 ## 📌 Usage
@@ -25,7 +25,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/michaelwp/goJsonStruct"
+	"github.com/yourusername/goJsonStruct"
 )
 
 func main() {
@@ -54,7 +54,7 @@ func main() {
 ```go
 jsonData := `{"name":"Bob","age":25,"email":"bob@example.com"}`
 var user User
-err := jsonConverter.FromJSON(jsonData, &user)
+err := jsonConverter.ToStruct(jsonData, &user)
 if err != nil {
 	fmt.Println("Error:", err)
 } else {
@@ -69,8 +69,6 @@ if err != nil {
 ✅ Minimal dependencies  
 ✅ Improves Go JSON handling efficiency
 
-
-
 ## 📢 Contributing
 
 Contributions are welcome! Feel free to submit pull requests or open issues.
@@ -78,4 +76,3 @@ Contributions are welcome! Feel free to submit pull requests or open issues.
 ---
 
 Enjoy coding with **GoJsonStruct** – because working with JSON in Go should be effortless! 🚀
-
