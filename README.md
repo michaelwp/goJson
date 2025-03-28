@@ -25,7 +25,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/yourusername/goJsonStruct"
+	"github.com/michaelwp/goJsonStruct"
 )
 
 func main() {
@@ -44,21 +44,17 @@ func main() {
 	fmt.Println(jsonStr) // Output: {"name":"Alice","age":30,"email":"alice@example.com"}
 
 	// Convert struct to pretty JSON
-	jsonPretty := jsonConverter.ToJSONIndent(user)
+	jsonPretty := jsonConverter.ToJSONPretty(user)
 	fmt.Println(jsonPretty)
-}
-```
 
-### Convert JSON to Struct
-
-```go
-jsonData := `{"name":"Bob","age":25,"email":"bob@example.com"}`
-var user User
-err := jsonConverter.ToStruct(jsonData, &user)
-if err != nil {
-	fmt.Println("Error:", err)
-} else {
-	fmt.Println(user) // Output: {Bob 25 bob@example.com}
+	// Convert json back to struct
+	var userStruct User
+	err := jsonConverter.ToStruct(jsonStr, &userStruct)
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println(userStruct) // Output: {Alice 30 alice@example.com}
+	}
 }
 ```
 

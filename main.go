@@ -8,7 +8,7 @@ import (
 type GoJsonStruct interface {
 	ToJSON(v interface{}) string
 	ToStruct(jsonStr string, v interface{}) error
-	ToJSONIndent(v interface{}) string
+	ToJSONPretty(v interface{}) string
 }
 
 type ImplGoJsonStruct struct{}
@@ -26,8 +26,8 @@ func (j ImplGoJsonStruct) ToJSON(v interface{}) string {
 	return string(jsonData)
 }
 
-// ToJSONIndent converts any struct to a prettified JSON string.
-func (j ImplGoJsonStruct) ToJSONIndent(v interface{}) string {
+// ToJSONPretty converts any struct to a prettified JSON string.
+func (j ImplGoJsonStruct) ToJSONPretty(v interface{}) string {
 	jsonData, err := json.MarshalIndent(v, "", "  ")
 	if err != nil {
 		return "{}"
@@ -35,7 +35,7 @@ func (j ImplGoJsonStruct) ToJSONIndent(v interface{}) string {
 	return string(jsonData)
 }
 
-// FromJSON converts a JSON string back to a struct.
+// ToStruct converts a JSON string back to a struct.
 func (j ImplGoJsonStruct) ToStruct(jsonStr string, v interface{}) error {
 	if err := json.Unmarshal([]byte(jsonStr), v); err != nil {
 		return fmt.Errorf("failed to parse JSON: %w", err)

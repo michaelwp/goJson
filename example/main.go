@@ -21,7 +21,7 @@ func main() {
 	fmt.Println(jsonStr) // Output: {"name":"Alice","age":30,"email":"alice@example.com"}
 
 	// Convert struct to pretty JSON
-	jsonPretty := jsonConverter.ToJSONIndent(user)
+	jsonPretty := jsonConverter.ToJSONPretty(user)
 	fmt.Println(jsonPretty)
 
 	// Convert json back to struct
