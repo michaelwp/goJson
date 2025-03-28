@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/michaelwp/goJsonStruct"
+	"github.com/michaelwp/goJson"
 )
 
 func main() {
-	jsonConverter := goJsonStruct.NewGoJsonStruct()
+	jsonConverter := gojson.NewGoJSON()
 
 	type User struct {
 		Name  string `json:"name"`
