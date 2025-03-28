@@ -13,7 +13,7 @@ GoJson is a lightweight library designed to easily convert Go structs to JSON an
 To install the package, run:
 
 ```sh
-go get github.com/micahaelwp/goJson
+go get github.com/micahaelwp/goJson/v2
 ```
 
 ## 📌 Usage
