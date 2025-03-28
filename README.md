@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-	jsonConverter := goJson.NewGoJson()
+	goJSON := gojson.NewGoJSON()
 
 	type User struct {
 		Name  string `json:"name"`
@@ -40,16 +40,16 @@ func main() {
 	user := User{Name: "Alice", Age: 30, Email: "alice@example.com"}
 
 	// Convert struct to JSON
-	jsonStr := jsonConverter.ToJSON(user)
+	jsonStr := goJSON.ToJSON(user)
 	fmt.Println(jsonStr) // Output: {"name":"Alice","age":30,"email":"alice@example.com"}
 
 	// Convert struct to pretty JSON
-	jsonPretty := jsonConverter.ToJSONPretty(user)
+	jsonPretty := goJSON.ToJSONPretty(user)
 	fmt.Println(jsonPretty)
 
 	// Convert json back to struct
 	var userStruct User
-	err := jsonConverter.ToStruct(jsonStr, &userStruct)
+	err := goJSON.ToStruct(jsonStr, &userStruct)
 	if err != nil {
 		fmt.Println("Error:", err)
 	} else {
